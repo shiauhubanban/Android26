@@ -14,6 +14,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     private GridView gridView;
     private MyAdapter myAdapter;
+    private MyAdapter2 myAdapter2;
     private int[]balls ={R.drawable.b0,R.drawable.b1,R.drawable.b2
         ,R.drawable.b3,R.drawable.b5,R.drawable.b6,R.drawable.b7};
     @Override
@@ -27,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initGridView(){
         myAdapter = new MyAdapter(this);
-        gridView.setAdapter(myAdapter);
+        myAdapter2 = new MyAdapter2(this);
+
+        gridView.setAdapter(myAdapter2);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -69,6 +72,32 @@ public class MainActivity extends AppCompatActivity {
             }img.setImageResource(balls[i]);
 
             return img;
+        }
+    }
+
+    private class MyAdapter2 extends BaseAdapter{
+        private Context context;
+        MyAdapter2(Context context){this.context=context;}
+
+        @Override
+        public int getCount() {
+            return balls.length;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+
+            return null;
         }
     }
 }
